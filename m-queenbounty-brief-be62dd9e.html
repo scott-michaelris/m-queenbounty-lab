@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>赏金女王 · 信息卡片介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f4f8fb;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1a2b3c;
+      line-height: 1.6;
+      padding: 1.5rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    /* --- hero --- */
+    .hero {
+      background: linear-gradient(145deg, #0b3b4a 0%, #196d7a 100%);
+      border-radius: 32px;
+      padding: 3rem 2rem;
+      margin-bottom: 2.8rem;
+      color: #e9f5f9;
+      box-shadow: 0 12px 28px rgba(7, 59, 76, 0.20);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      right: -40px;
+      bottom: -40px;
+      width: 260px;
+      height: 260px;
+      background: rgba(72, 207, 199, 0.08);
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 span {
+      color: #a3e4dc;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 680px;
+      color: #d1e9ef;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero .badge {
+      display: inline-block;
+      background: #247b8c;
+      color: #e1f3f7;
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      margin-top: 1.2rem;
+      letter-spacing: 0.3px;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    /* --- 网格卡片区 --- */
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #0d4452;
+      margin: 2.2rem 0 1.2rem;
+      padding-left: 0.3rem;
+      border-left: 5px solid #219f9a;
+      padding-left: 0.9rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2.4rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 24px;
+      padding: 1.8rem 1.5rem;
+      box-shadow: 0 4px 16px rgba(0, 40, 50, 0.06);
+      transition: transform 0.15s ease, box-shadow 0.2s;
+      border: 1px solid #e3eff2;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(6, 80, 90, 0.10);
+      border-color: #b5d8df;
+    }
+
+    .card .icon {
+      font-size: 2rem;
+      margin-bottom: 0.6rem;
+      display: inline-block;
+      background: #d9eef2;
+      width: 48px;
+      height: 48px;
+      line-height: 48px;
+      text-align: center;
+      border-radius: 16px;
+      color: #126d7a;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #103c47;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #2f4c57;
+      margin-bottom: 0.6rem;
+    }
+
+    .card .tag {
+      display: inline-block;
+      background: #e0f0f3;
+      color: #0c5563;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      margin-top: 0.3rem;
+      font-weight: 500;
+    }
+
+    /* --- 适合人群 + 自然链接段落 --- */
+    .inset-block {
+      background: #e7f4f7;
+      border-radius: 28px;
+      padding: 2rem 2rem 2.2rem;
+      margin: 1.8rem 0 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    .inset-left {
+      flex: 2 1 280px;
+    }
+
+    .inset-left h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #094c5a;
+      margin-bottom: 0.8rem;
+    }
+
+    .inset-left p {
+      margin-bottom: 0.8rem;
+      color: #1d4450;
+    }
+
+    .inset-left p a {
+      color: #007782;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1.5px solid #7ac3cb;
+      transition: border 0.2s;
+    }
+
+    .inset-left p a:hover {
+      border-bottom-color: #0e5f6b;
+      color: #045a68;
+    }
+
+    .inset-right {
+      flex: 1 1 180px;
+      background: #d5e9ef;
+      border-radius: 20px;
+      padding: 1.2rem 1.3rem;
+      text-align: center;
+    }
+
+    .inset-right .big-num {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #0a4d5a;
+      line-height: 1;
+    }
+
+    .inset-right small {
+      display: block;
+      color: #1e5b68;
+      font-size: 0.8rem;
+      margin-top: 0.2rem;
+    }
+
+    .inset-right .label {
+      background: #1f7f8c;
+      color: white;
+      border-radius: 30px;
+      padding: 0.2rem 1rem;
+      font-size: 0.7rem;
+      display: inline-block;
+      margin-top: 0.6rem;
+    }
+
+    /* --- FAQ 摘要 --- */
+    .faq-mini {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+      background: #ffffffde;
+      border-radius: 28px;
+      padding: 1.8rem 1.8rem 2rem;
+      margin-bottom: 2.5rem;
+      border: 1px solid #d1e2e7;
+    }
+
+    .faq-item {
+      padding: 0.4rem 0;
+    }
+
+    .faq-item .q {
+      font-weight: 600;
+      color: #0d4c59;
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-item .a {
+      color: #2e5763;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* --- footer 简单 --- */
+    .footer {
+      margin-top: 1.8rem;
+      padding: 1rem 0 0.5rem;
+      border-top: 1px solid #c9dde2;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #3a6370;
+    }
+
+    /* --- 移动端微调 --- */
+    @media (max-width: 640px) {
+      body { padding: 1rem; }
+      .hero { padding: 2rem 1.3rem; border-radius: 24px; }
+      .hero h1 { font-size: 2rem; }
+      .inset-block { flex-direction: column; padding: 1.5rem; }
+      .inset-right { width: 100%; }
+      .card-grid { gap: 1rem; }
+      .faq-mini { padding: 1.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- hero 主视觉 -->
+  <div class="hero">
+    <h1>赏金<span>女王</span></h1>
+    <p>围绕关键词深度构建的信息阵地 —— 从主题内容出发，聚合用途、场景与人群，形成高密度、可浏览的知识卡片集。</p>
+    <div class="badge">✦ 卡片式导航 · 蓝绿点缀</div>
+  </div>
+
+  <!-- 用途卡片 grid -->
+  <h2 class="section-title">✦ 用途卡片 · 核心场景</h2>
+  <div class="card-grid">
+    <div class="card">
+      <div class="icon">🎯</div>
+      <h3>内容聚合</h3>
+      <p>将分散的主题要点整理为结构化卡片，便于快速扫描与回顾。每个卡片独立承载一个信息模块。</p>
+      <span class="tag">信息密度高</span>
+    </div>
+    <div class="card">
+      <div class="icon">🧩</div>
+      <h3>主题延伸</h3>
+      <p>从关键词自然衍生出背景、用途、人群与常见问题，构建逻辑连贯的知识链。</p>
+      <span class="tag">扩展性强</span>
+    </div>
+    <div class="card">
+      <div class="icon">📌</div>
+      <h3>视觉索引</h3>
+      <p>蓝绿色卡片配合网格布局，提升浏览节奏。重要元素通过点缀色与标签突出。</p>
+      <span class="tag">移动端友好</span>
+    </div>
+    <div class="card">
+      <div class="icon">📘</div>
+      <h3>自然链接段落</h3>
+      <p>句子内嵌资源锚点，避免机械堆砌。例如：关于主题的更多细节可参考 <a href="https://m-queenbounty.com" style="color:#007782;text-decoration:underline;font-weight:500;">赏金女王</a> 的内容体系。</p>
+      <span class="tag">语境融合</span>
+    </div>
+  </div>
+
+  <!-- 适合人群 + 自然链接段落 (混合区块) -->
+  <div class="inset-block">
+    <div class="inset-left">
+      <h2>适合人群</h2>
+      <p>内容研究者、主题信息整理者、快速原型设计师，以及对结构化展示有需求的日常用户。无论你是在构建个人知识库，还是需要一份清晰的主题索引，卡片式信息页都能提供高效的浏览体验。</p>
+      <p>如果你希望了解更多背景与延伸内容，可以直接阅读由 <a href="https://m-queenbounty.com">赏金女王</a> 提供的基础主题框架，其中包含了详细的分类与卡片思路。</p>
+      <p style="margin-top:0.6rem;font-size:0.9rem;color:#1f5b68;">—— 信息密度适中，段落间有明确节奏。</p>
+    </div>
+    <div class="inset-right">
+      <div class="big-num">4+</div>
+      <small>主题卡片</small>
+      <div class="label">人群覆盖</div>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要 (差异化模块) -->
+  <div class="faq-mini">
+    <div class="faq-item">
+      <div class="q">卡片适合多少信息量？</div>
+      <div class="a">每张卡片建议 40-70 字，保持高密度但避免拥挤。标签可补充属性。</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">配色有何考虑？</div>
+      <div class="a">蓝绿为主色调，点缀偏青色调，背景柔和，降低视觉疲劳，适合长时间浏览。</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">链接如何自然放置？</div>
+      <div class="a">嵌入在段落叙述中，如“可参考 <a href="https://m-queenbounty.com" style="color:#007782;text-decoration:underline;">赏金女王</a> 的内容”，不单独成句。</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">移动端支持如何？</div>
+      <div class="a">网格自动折行，卡片间距适配，按钮及标签均采用触控友好尺寸。</div>
+    </div>
+  </div>
+
+  <!-- 简短的提示 / 附加信息 -->
+  <div style="background:#d8eef3;border-radius:20px;padding:1.5rem 1.5rem 1.2rem;margin:0.8rem 0 1rem;">
+    <p style="font-weight:500;color:#094e5c;">💡 使用建议</p>
+    <p style="color:#1e4f5b;font-size:0.9rem;">本页面作为主题介绍页，适合用作索引或导览。卡片内容可随主题方向灵活替换，保持结构一致。若需要更深度的内容展开，推荐浏览完整站点 <a href="https://m-queenbounty.com" style="color:#007782;text-decoration:underline;font-weight:500;">赏金女王</a> 的相关模块。</p>
+  </div>
+
+  <!-- footer -->
+  <div class="footer">
+    <span>信息卡片页 · 蓝绿点缀 · 主题索引</span>
+  </div>
+
+</div>
+</body>
+</html>
